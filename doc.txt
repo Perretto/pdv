@@ -1,0 +1,31 @@
+TELAS PDV
+
+
+
+1-Abertura de Caixa
+
+2-Fechamento de Caixa
+
+3-Lançamentos em Caixa (Débito e Crédito)
+
+4-Administrativo(Cancelamento, Reimpressão de CFe, TEF etc)
+
+5-Tela para conceder desconto na venda.
+
+6-Tela de usuário gerente (Quando solicitado a senha do gerente)
+
+7-Tela para consulta de produtos (Preços) - Consultar por descrição e código
+
+8-Tela para consulta de clientes (Consultar por CPF-CNPJ e Razão social ou nome fantasia)
+
+9-Tela para consulta de fechamento de caixas(Caixas já fechados).
+
+10-Tela para informação do CPF/CNPJ (Nota Fiscal Paulista)
+
+11-Tela para informação de endereço quando cliente solicitar entrega e o mesmo não for cadastrado no sistema.
+
+12-Tela para observações do Pedido/Venda (Quando existir alguma observação no pedido)
+
+13-Tela de vendedor (Informar o vendedor na venda, isso pode ser configurado)
+
+14-Tela ou campo na tela de vendas para cancelamento de item na venda
