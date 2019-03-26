@@ -18,7 +18,7 @@ function createWindow () {
     slashes: true
   }));
 
-  let server = require('./general')
+  let server = require('../frontend/template2/js/general.js')
 
 
   win.on('closed', () => {
