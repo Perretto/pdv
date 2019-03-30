@@ -17,6 +17,7 @@
     "build": "electron-packager . --all"
   },
   "dependencies": {
+    "electron-edge-js": "^10.11.1",
     "izitoast": "^1.4.0",
     "jQuery": "^1.7.4",
     "jquery": "^3.3.1",
