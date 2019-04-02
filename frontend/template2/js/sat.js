@@ -6,14 +6,14 @@ function sat(){
         source: function () {/*
             async (dynamic input) =>
             {
-                var Util = new ECFSatCFe.Utils.Utilitarios().F_ConvertHexa(input.str.ToString());
+                var Util = ECFSatCFe.Utils.Utilitarios.F_RemoveAcentos(input.str);
                 return Util;
             }
         */},
         references: ["bin/SatCFe.dll"]
     });
 
-    Utilitarios({str:'Este texto sera convertido.'}, function (error, result) {
+    Utilitarios({str:'É, será mês da convenção.'}, function (error, result) {
         if (error) throw error;
         console.log(result);
     });
