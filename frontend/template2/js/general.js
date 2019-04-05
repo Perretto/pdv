@@ -1,45 +1,45 @@
 var sqlite3 = require('sqlite3').verbose();
 
-function select (sql, callback){
+function select(sql, callback) {
     var retorno = [];
     //var db = new sqlite3.Database('C:\\sqlite\\baseig');
     var db = new sqlite3.Database(__dirname + '\\pdv');
-    db.serialize(function() {
+    db.serialize(function () {
         //await db.each(sql, function(err, row) {
-        db.each(sql, function(err, row) {
-            retorno.push(row);            
-        });        
+        db.each(sql, function (err, row) {
+            retorno.push(row);
+        });
     });
-    
+
     db.close((err) => {
         if (err) {
-          console.error(err.message);
-          retorno.push(err);
-        } 
-        
-        callback(retorno);         
+            console.error(err.message);
+            retorno.push(err);
+        }
+
+        callback(retorno);
     });
 }
 
-function execute (sql, callback){
-    
+function execute(sql, callback) {
+
     var retorno = [];
     //var db = new sqlite3.Database('C:\\sqlite\\baseig');
     var db = new sqlite3.Database(__dirname + '/pdv');
-    
-    db.serialize(function() {        
-        db.run(sql);        
+
+    db.serialize(function () {
+        db.run(sql);
     });
-    
+
     db.close((err) => {
         if (err) {
-          console.error(err.message);
-          retorno.push(err.message);
-        } 
-        
-        callback(retorno);         
+            console.error(err.message);
+            retorno.push(err.message);
+        }
+
+        callback(retorno);
     });
-    
+
 }
 
 
@@ -47,8 +47,8 @@ function execute (sql, callback){
 
 
 
-function executeObj (table, parametros, callback){
-    
+function executeObj(table, parametros, callback) {
+
     var sql = "";
     var columns = "";
     var values = "";
@@ -56,84 +56,84 @@ function executeObj (table, parametros, callback){
     var i = 0;
     var up = false;
 
-    if(parametros.id){
+    if (parametros.id) {
         up = true;
         sql = "UPDATE " + table + " SET ";
         for (index in parametros) {
-            if(index != "id"){
+            if (index != "id") {
                 nome = "";
 
-                switch (index.substring(0,2)) {
+                switch (index.substring(0, 2)) {
                     case "nm":
                         nome = "'" + parametros[index] + "'";
-                        break; 
+                        break;
                     case "dt":
                         nome = "'" + parametros[index] + "'";
-                        break;     
+                        break;
                     case "im":
                         nome = "'" + parametros[index] + "'";
-                        break;                                   
-                    case "vl":  
-                        if(parametros[index].substr(parametros[index].length - 3,1) == ","){
-                            parametros[index] = parametros[index].replace(".","").replace(".","").replace(".","").replace(".","").replace(".","").replace(",",".")
+                        break;
+                    case "vl":
+                        if (parametros[index].substr(parametros[index].length - 3, 1) == ",") {
+                            parametros[index] = parametros[index].replace(".", "").replace(".", "").replace(".", "").replace(".", "").replace(".", "").replace(",", ".")
                         }
-                        
-                        if(!parametros[index]){
+
+                        if (!parametros[index]) {
                             parametros[index] = "0";
                         }
                         nome = "" + parametros[index] + "";
-                    break;         
+                        break;
                     default:
                         nome = "" + parametros[index] + "";
                         break;
                 }
-                
-                if(i == 0){
+
+                if (i == 0) {
                     sql += " " + index + "=" + nome;
-                }else{
+                } else {
                     sql += ", " + index + "=" + nome;
                 }
-                i += 1; 
+                i += 1;
             }
         }
 
-        sql += " WHERE id=" + parametros.id + "";         
-    }else{
+        sql += " WHERE id=" + parametros.id + "";
+    } else {
         for (index in parametros) {
-            if(index != "id"){
-                console.log(index.substring(0,2))
-                switch (index.substring(0,2)) {
+            if (index != "id") {
+                console.log(index.substring(0, 2))
+                switch (index.substring(0, 2)) {
                     case "nm":
                         nome = "'" + parametros[index] + "'";
-                        break; 
+                        break;
                     case "dt":
-                        nome =  "'" + parametros[index] + "'";
-                        break;      
+                        nome = "'" + parametros[index] + "'";
+                        break;
                     case "im":
                         nome = "'" + parametros[index] + "'";
-                        break;                                          
-                    case "vl": 
-                        if(parametros[index].substr(parametros[index].length - 3,1) == ","){
-                            parametros[index] = parametros[index].replace(".","").replace(".","").replace(".","").replace(".","").replace(".","").replace(",",".")
+                        break;
+                    case "vl":
+                        if (parametros[index].substr(parametros[index].length - 3, 1) == ",") {
+                            parametros[index] = parametros[index].replace(".", "").replace(".", "").replace(".", "").replace(".", "").replace(".", "").replace(",", ".")
                         }
-                        if(!parametros[index]){
+                        if (!parametros[index]) {
                             parametros[index] = "0";
                         }
-                        nome = "" + parametros[index] + "";         
+                        nome = "" + parametros[index] + "";
                     default:
                         nome = "" + parametros[index] + "";
                         break;
                 }
 
 
-                if(i == 0){
+                if (i == 0) {
                     columns += index;
                     values += nome;
-                }else{
+                } else {
                     columns += ", " + index;
                     values += ", " + nome;
                 }
-                
+
                 i += 1;
             }
         }
@@ -143,24 +143,24 @@ function executeObj (table, parametros, callback){
     var retorno = [];
     //var db = new sqlite3.Database('C:\\sqlite\\baseig');
     var db = new sqlite3.Database(__dirname + '/pdv');
-    
-    db.serialize(function() {        
-        db.run(sql,function(err, ret){
-            if(up){
+
+    db.serialize(function () {
+        db.run(sql, function (err, ret) {
+            if (up) {
                 this.lastID = parametros.id;
             }
             retorno.push(this);
-            console.log(this)    
-        });    
+            console.log(this)
+        });
     });
-    
+
     db.close((err) => {
         if (err) {
-          console.error(err);
-          retorno.push(err);
-        } 
-        
-        callback(retorno);         
-    }); 
-    
+            console.error(err);
+            retorno.push(err);
+        }
+
+        callback(retorno);
+    });
+
 }

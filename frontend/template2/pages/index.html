@@ -34,19 +34,19 @@
     <link href="../css/theme.css" rel="stylesheet" media="all">
 
     <!-- Insert this line above script imports  -->
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
 
     <!-- normal script imports etc  -->
-    <script src="../vendor/jquery-3.2.1.min.js"></script>  
-    <script src="../vendor/bootstrap-4.1/bootstrap.min.js" ></script>   
-    
+    <script src="../vendor/jquery-3.2.1.min.js"></script>
+    <script src="../vendor/bootstrap-4.1/bootstrap.min.js"></script>
+
     <!-- Insert this line after script imports -->
     <script>if (window.module) module = window.module;</script>
 </head>
 
 <body class="animsition">
     <div id="topo" class="page-wrapper">
-        
+
         <!-- PAGE CONTENT-->
         <div class="page-content--bgf7">
             <!-- BREADCRUMB-->
@@ -223,7 +223,7 @@
                 </div>
             </section>
             <!-- END STATISTIC CHART-->
-<!--
+            <!--
     
             <section class="p-t-20">
                 <div class="container">
@@ -439,7 +439,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright © 2019 OCTOPLEX. All rights reserved. <a  target="_blank" href="https://octoplex.com.br">Octoplex</a>.</p>
+                                <p>Copyright © 2019 OCTOPLEX. All rights reserved. <a target="_blank"
+                                        href="https://octoplex.com.br">Octoplex</a>.</p>
                             </div>
                         </div>
                     </div>
@@ -450,15 +451,15 @@
 
     </div>
 
-    <script >
+    <script>
         $.ajax({
             url: "../../template2/pages/menu.html",
             context: document.body
-        }).done(function(data) {
+        }).done(function (data) {
             $("#topo").prepend(data);
         });
     </script>
-    
+
     <!-- Jquery JS-->
     <script src="../vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->

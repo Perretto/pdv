@@ -8,9 +8,9 @@ const url = require('url')
 
 let win;
 
-function createWindow () {
+function createWindow() {
 
-  win = new BrowserWindow({width: 800, height: 600, fullscreen: true})
+  win = new BrowserWindow({ width: 800, height: 600, fullscreen: true })
 
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'template2\\pages\\index.html'),

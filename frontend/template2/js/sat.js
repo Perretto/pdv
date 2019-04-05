@@ -1,7 +1,7 @@
 let edge = require('electron-edge-js');
 
-function sat(){
-    
+function sat() {
+
     var Utilitarios = edge.func({
         source: function () {/*
             async (dynamic input) =>
@@ -13,7 +13,7 @@ function sat(){
         references: ["bin/SatCFe.dll"]
     });
 
-    Utilitarios({str:'É, será mês da convenção.'}, function (error, result) {
+    Utilitarios({ str: 'É, será mês da convenção.' }, function (error, result) {
         if (error) throw error;
         console.log(result);
     });
